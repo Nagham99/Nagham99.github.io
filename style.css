@@ -1,52 +1,97 @@
+/* GLOBAL */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background-color: #f4f6f8;
-  color: #333;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  color: #1f2937;
+  background-color: #f8fafc;
 }
 
-.header {
-  background-color: #0f172a;
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
   color: white;
-  padding: 60px 20px;
-  text-align: center;
+  padding: 100px 20px;
 }
 
-.header h1 {
+.hero-content {
+  max-width: 900px;
+  margin: auto;
+}
+
+.hero h1 {
+  font-size: 44px;
   margin-bottom: 10px;
-  font-size: 36px;
 }
 
-.header p {
+.subtitle {
   font-size: 18px;
+  color: #cbd5e1;
+  margin-bottom: 20px;
+}
+
+.summary {
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.hero-buttons .btn {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+/* BUTTONS */
+.btn {
+  padding: 12px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn.primary {
+  background-color: #2563eb;
+  color: white;
+}
+
+.btn.secondary {
+  border: 1px solid #cbd5e1;
   color: #cbd5e1;
 }
 
+/* LAYOUT */
 .container {
   max-width: 900px;
-  margin: 40px auto;
+  margin: 60px auto;
   padding: 0 20px;
 }
 
 h2 {
-  margin-bottom: 15px;
-  color: #0f172a;
+  font-size: 28px;
+  margin-bottom: 20px;
 }
 
+/* ABOUT */
 .about p {
-  line-height: 1.6;
+  max-width: 700px;
+  line-height: 1.7;
 }
 
-.projects {
-  margin-top: 40px;
+/* PROJECTS */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
 }
 
 .project-card {
   background-color: white;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
 }
 
 .project-card h3 {
@@ -54,23 +99,21 @@ h2 {
 }
 
 .project-card p {
-  margin-bottom: 10px;
-  color: #555;
+  color: #4b5563;
+  line-height: 1.5;
+  margin-bottom: 15px;
 }
 
 .project-card a {
   text-decoration: none;
+  font-weight: 600;
   color: #2563eb;
-  font-weight: bold;
 }
 
-.project-card a:hover {
-  text-decoration: underline;
-}
-
+/* FOOTER */
 .footer {
   text-align: center;
   padding: 30px;
   background-color: #e5e7eb;
-  margin-top: 60px;
+  margin-top: 80px;
 }
