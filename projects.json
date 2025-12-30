@@ -1,0 +1,20 @@
+[
+  {
+    "title": "SQL Projects",
+    "description": "Business-focused SQL analysis including joins, aggregations, subqueries, and performance reporting.",
+    "image": "images/sql.png",
+    "link": "https://github.com/Nagham99/data-analyst-portfolio/tree/main/SQL_Projects"
+  },
+  {
+    "title": "Excel Projects",
+    "description": "Interactive dashboards using Pivot Tables, formulas, Power Query, and conditional formatting.",
+    "image": "images/excel.png",
+    "link": "https://github.com/Nagham99/data-analyst-portfolio/tree/main/Excel_Projects"
+  },
+  {
+    "title": "Power BI Projects",
+    "description": "Executive dashboards with KPIs, DAX measures, and data modeling.",
+    "image": "images/powerbi.png",
+    "link": "https://github.com/Nagham99/data-analyst-portfolio/tree/main/PowerBI_Projects"
+  }
+]
