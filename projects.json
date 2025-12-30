@@ -16,6 +16,12 @@
     "description": "Interactive dashboards using Pivot Tables, formulas, Power Query, and conditional formatting.",
     "image": "images/excel.png",
     "link": "https://github.com/Nagham99/data-analyst-portfolio/tree/main/Excel_Projects"
+  },
+    {
+    "title": "AI and Data Science Projects",
+    "description": "Interactive dashboards using Pivot Tables, formulas, Power Query, and conditional formatting.",
+    "image": "images/ai.png",
+    "link": "https://github.com/Nagham99/data-analyst-portfolio/tree/main/AI and Data Science Projects"
   }
  
 ]
