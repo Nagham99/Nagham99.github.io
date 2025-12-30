@@ -3,7 +3,7 @@
     "title": "AI and Data Science Projects",
     "description": "Includes Machine Learning, Deep Learning, NLP, EDA, OCR projects for predictive modeling, data analysis, and AI applications.",
     "image": "images/ai.png",
-    "link": "https://github.com/Nagham99/data-analyst-portfolio/tree/main/AI and Data Science Projects"
+    "link": "https://github.com/Nagham99/data-analyst-portfolio/tree/main/AI_DS_Projects"
   },
     {
     "title": "Power BI Projects",
@@ -23,6 +23,5 @@
     "image": "images/excel.png",
     "link": "https://github.com/Nagham99/data-analyst-portfolio/tree/main/Excel_Projects"
   }
-    
  
 ]
