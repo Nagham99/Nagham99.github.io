@@ -13,12 +13,13 @@
     <h1>Nagham</h1>
     <p class="subtitle">Data Analyst • SQL • Excel • Power BI</p>
     <p class="summary">
-      I analyze data to uncover insights, improve performance,
-      and support data-driven decision making.
+      I analyze data to uncover insights, improve performance, and support data-driven decision making.
     </p>
     <div class="hero-buttons">
       <a href="#projects" class="btn primary">View Projects</a>
+      <a href="Nagham_Resume.pdf" class="btn primary" download>Download Resume</a>
       <a href="https://github.com/Nagham99" class="btn secondary" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/yourlinkedin/" class="btn secondary" target="_blank">LinkedIn</a>
     </div>
   </div>
 </header>
@@ -39,25 +40,37 @@
   <!-- PROJECTS -->
   <section class="projects" id="projects">
     <h2>Projects</h2>
+    <div class="project-grid" id="project-grid">
+      <!-- Dynamic project cards will be loaded here -->
+    </div>
+  </section>
 
-    <div class="project-grid">
+</main>
 
-      <div class="project-card">
-        <h3>SQL Projects</h3>
-        <p>
-          Business-focused SQL analysis including joins, aggregations,
-          subqueries, and performance reporting.
-        </p>
-        <a href="https://github.com/Nagham99/data-analyst-portfolio/tree/main/SQL_Projects" target="_blank">
-          View SQL Projects →
-        </a>
-      </div>
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2025 Nagham • <a href="https://github.com/Nagham99" target="_blank">GitHub</a></p>
+</footer>
 
-      <div class="project-card">
-        <h3>Excel Projects</h3>
-        <p>
-          Interactive dashboards using Pivot Tables, formulas,
-          Power Query, and conditional formatting.
-        </p>
-        <a href="https://github.com/Nagham99/data-analyst-portfolio/tree/main/Excel_Projects" target="_blank">
-          View Excel Projects →
+<!-- DYNAMIC PROJECT LOADING -->
+<script>
+fetch('projects.json')
+  .then(response => response.json())
+  .then(data => {
+    const grid = document.getElementById('project-grid');
+    data.forEach(project => {
+      const card = document.createElement('div');
+      card.className = 'project-card';
+      card.innerHTML = `
+        <img src="${project.image}" alt="${project.title}" class="project-img">
+        <h3>${project.title}</h3>
+        <p>${project.description}</p>
+        <a href="${project.link}" target="_blank">View Project →</a>
+      `;
+      grid.appendChild(card);
+    });
+  });
+</script>
+
+</body>
+</html>
