@@ -1,33 +1,22 @@
-// TYPEWRITER EFFECT
 const words = ["Predictive ML Models.", "Data Pipelines.", "Interactive Dashboards.", "AI-Driven Insights."];
 let i = 0, j = 0, isDeleting = false;
 
 function type() {
     const target = document.getElementById("typewriter");
-    if (!target) return; // Guard clause
-
+    if (!target) return;
     let currentWord = words[i];
-    
     if (isDeleting) {
         target.textContent = currentWord.substring(0, j - 1);
         j--;
-        if (j === 0) { 
-            isDeleting = false; 
-            i = (i + 1) % words.length; 
-        }
+        if (j === 0) { isDeleting = false; i = (i + 1) % words.length; }
     } else {
         target.textContent = currentWord.substring(0, j + 1);
         j++;
-        if (j === currentWord.length) { 
-            isDeleting = true; 
-            setTimeout(type, 2000); 
-            return; 
-        }
+        if (j === currentWord.length) { isDeleting = true; setTimeout(type, 2000); return; }
     }
     setTimeout(type, isDeleting ? 50 : 100);
 }
 
-// GITHUB REPO LOADER
 const featuredRepos = [
     'Airbnb-price-category-prediction',
     'Reddit-Fake-Post-Detection-by-Looking-Only-at-the-Title-',
@@ -38,31 +27,40 @@ const featuredRepos = [
 
 async function fetchRepos() {
     const container = document.getElementById('project-grid');
-    if (!container) return; // Guard clause
+    if (!container) return;
 
-    container.innerHTML = ""; // Clear existing content
+    // Show a loading message
+    container.innerHTML = "<p style='color: #64ffda;'>Loading my latest work...</p>";
 
-    for (const repo of featuredRepos) {
-        try {
-            const res = await fetch(`https://api.github.com/repos/Nagham99/${repo}`);
-            if (!res.ok) continue;
-            const data = await res.json();
-            
+    try {
+        const response = await fetch(`https://api.github.com/users/Nagham99/repos`);
+        const allRepos = await response.json();
+        
+        // Filter only the ones you want to show
+        const displayRepos = allRepos.filter(repo => featuredRepos.includes(repo.name));
+
+        container.innerHTML = ""; // Clear loading message
+
+        displayRepos.forEach(repo => {
             const card = document.createElement('div');
             card.className = 'project-card';
             card.innerHTML = `
-                <h4>${data.name.replace(/-/g, ' ')}</h4>
-                <p style="font-size: 0.9rem; color: #8892b0;">${data.description || 'Professional data solution.'}</p>
-                <a href="${data.html_url}" target="_blank" class="project-link">View Repository →</a>
+                <div class="repo-badge">GitHub Project</div>
+                <h4>${repo.name.replace(/-/g, ' ')}</h4>
+                <p>${repo.description || 'End-to-end data solution and analysis.'}</p>
+                <div class="repo-footer">
+                    <span>${repo.language || 'Data Science'}</span>
+                    <a href="${repo.html_url}" target="_blank" class="project-link">View Code →</a>
+                </div>
             `;
             container.appendChild(card);
-        } catch (e) { 
-            console.error("Error fetching repo:", e); 
-        }
+        });
+    } catch (e) {
+        container.innerHTML = "<p>Please visit my GitHub directly to see my projects.</p>";
+        console.error("GitHub Fetch Error:", e);
     }
 }
 
-// MAKE SURE IT RUNS
 window.onload = () => {
     type();
     fetchRepos();
