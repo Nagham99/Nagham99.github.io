@@ -1,44 +1,92 @@
 :root {
-    --bg: #0a192f;
-    --card-bg: #112240;
+    --bg: #060b13;
+    --card-bg: #0d141f;
     --accent: #64ffda;
-    --text-bright: #e6f1ff;
-    --text-dim: #8892b0;
+    --text-bright: #ffffff;
+    --text-dim: #94a3b8;
+    --glow: rgba(100, 255, 218, 0.15);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: var(--bg); color: var(--text-bright); font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+body { 
+    background: var(--bg); 
+    color: var(--text-bright); 
+    font-family: 'Inter', sans-serif; 
+    line-height: 1.6;
+}
+
 .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-/* Navigation */
-.glass-nav { display: flex; justify-content: space-between; align-items: center; padding: 25px 0; }
-.logo { font-weight: 800; font-size: 1.5rem; letter-spacing: 2px; }
-.logo span { color: var(--accent); }
-.nav-links a { color: var(--text-bright); text-decoration: none; margin-left: 25px; font-size: 0.9rem; }
-.nav-resume { border: 1px solid var(--accent); padding: 8px 15px; border-radius: 4px; color: var(--accent) !important; }
+/* Adding the Glow to the top */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: radial-gradient(circle at top right, var(--glow), transparent 40%),
+                radial-gradient(circle at bottom left, var(--glow), transparent 40%);
+}
 
-/* Hero Section */
-.hero { height: 100vh; position: relative; display: flex; align-items: center; overflow: hidden; }
-.hero-bg-glow { position: absolute; top: -10%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(100,255,218,0.1) 0%, transparent 70%); }
-.pre-title { color: var(--accent); font-family: monospace; margin-bottom: 10px; }
-h1 { font-size: clamp(2.5rem, 8vw, 5rem); line-height: 1.1; }
-.last-name { -webkit-text-stroke: 1px var(--text-bright); color: transparent; }
-.dynamic-typing { font-size: 1.5rem; margin: 20px 0; color: var(--text-dim); }
-#typewriter { color: var(--accent); font-weight: 600; }
-.hero-description { max-width: 550px; color: var(--text-dim); margin-bottom: 30px; }
-.btn-glow { padding: 15px 30px; border: 1px solid var(--accent); color: var(--accent); text-decoration: none; border-radius: 4px; transition: 0.3s; }
-.btn-glow:hover { background: rgba(100, 255, 218, 0.1); box-shadow: 0 0 20px rgba(100, 255, 218, 0.2); }
+h1 { font-size: 4rem; margin-bottom: 10px; }
+.last-name { color: var(--accent); text-shadow: 0 0 20px var(--glow); }
 
-/* Pillars Section */
-.pillars { padding: 100px 0; }
-.section-title { font-size: 2rem; margin-bottom: 50px; text-align: center; }
-.pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-.pillar-card { background: var(--card-bg); padding: 30px; border-radius: 10px; transition: 0.3s; }
-.pillar-card:hover { transform: translateY(-10px); border: 1px solid var(--accent); }
-.pillar-card h3 { color: var(--accent); margin-bottom: 15px; }
+/* The Typewriter Glow */
+#typewriter { color: var(--accent); text-shadow: 0 0 10px var(--accent); font-weight: bold; }
 
-/* Projects */
-.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-.project-card { background: rgba(255,255,255,0.03); padding: 25px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); }
-.project-card h4 { color: var(--accent); margin-bottom: 10px; }
-.project-link { color: var(--accent); text-decoration: none; display: block; margin-top: 15px; font-size: 0.8rem; }
+/* PROJECT CARDS - LUMINOUS STYLE */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px -10px var(--glow);
+}
+
+.repo-badge {
+    font-size: 0.7rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.project-card h4 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: var(--text-bright);
+}
+
+.project-card p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.project-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Pillar Cards Glow */
+.pillar-card {
+    background: linear-gradient(145deg, #0d141f, #060b13);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
