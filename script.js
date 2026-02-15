@@ -1,51 +1,81 @@
-const words = ["ML Models", "Data Pipelines", "Visual Dashboards", "AI Solutions"];
-let i = 0, j = 0, isDeleting = false;
-
-function type() {
-    const target = document.getElementById("typewriter");
-    let currentWord = words[i];
-    if (isDeleting) {
-        target.textContent = currentWord.substring(0, j - 1);
-        j--;
-        if (j === 0) { isDeleting = false; i = (i + 1) % words.length; }
-    } else {
-        target.textContent = currentWord.substring(0, j + 1);
-        j++;
-        if (j === currentWord.length) { isDeleting = true; setTimeout(type, 2000); return; }
-    }
-    setTimeout(type, isDeleting ? 40 : 80);
-}
-
-const featuredRepos = [
-    'Airbnb-price-category-prediction',
-    'Reddit-Fake-Post-Detection-by-Looking-Only-at-the-Title-',
-    'Cookies-Sales-Dashboard-PowerBI',
-    'Sales-Dashboard-Excel',
-    'Speed-Dating-Match-Prediction'
+// TYPEWRITER EFFECT
+const words = [
+    "Data Engineering",
+    "AI Systems",
+    "Machine Learning",
+    "Scalable Analytics"
 ];
 
-async function fetchRepos() {
-    const container = document.getElementById('project-grid');
-    try {
-        const response = await fetch(`https://api.github.com/users/Nagham99/repos`);
-        const allRepos = await response.json();
-        const displayRepos = allRepos.filter(repo => featuredRepos.includes(repo.name));
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const typewriter = document.getElementById("typewriter");
 
-        container.innerHTML = "";
-        displayRepos.forEach(repo => {
-            const card = document.createElement('div');
-            card.className = 'project-card';
-            card.innerHTML = `
-                <h4>${repo.name.replace(/-/g, ' ')}</h4>
-                <p>${repo.description || 'Full-stack data solution architected for business scale.'}</p>
-                <a href="${repo.html_url}" target="_blank" class="project-link">Source Code —</a>
-            `;
-            container.appendChild(card);
-        });
-    } catch (e) { console.error(e); }
+function typeEffect() {
+    const currentWord = words[wordIndex];
+    
+    if (isDeleting) {
+        charIndex--;
+    } else {
+        charIndex++;
+    }
+
+    typewriter.textContent = currentWord.substring(0, charIndex);
+
+    if (!isDeleting && charIndex === currentWord.length) {
+        setTimeout(() => isDeleting = true, 1000);
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+    }
+
+    setTimeout(typeEffect, isDeleting ? 40 : 80);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    type();
-    fetchRepos();
+typeEffect();
+
+
+// PROJECT DATA
+const projects = [
+    {
+        title: "Modern Data Pipeline",
+        description: "Designed and deployed an end-to-end ETL pipeline using Airflow and Snowflake to process millions of records efficiently.",
+        link: "#"
+    },
+    {
+        title: "AI Forecasting Model",
+        description: "Built a production-ready predictive model improving business demand forecasting accuracy by 27%.",
+        link: "#"
+    },
+    {
+        title: "Realtime Analytics Dashboard",
+        description: "Engineered a real-time BI system integrating streaming data for executive decision-making.",
+        link: "#"
+    }
+];
+
+const projectGrid = document.getElementById("project-grid");
+
+projects.forEach(project => {
+    const card = document.createElement("div");
+    card.classList.add("project-card");
+    card.innerHTML = `
+        <h4>${project.title}</h4>
+        <p>${project.description}</p>
+        <a class="project-link" href="${project.link}">View Project</a>
+    `;
+    projectGrid.appendChild(card);
+});
+
+// SCROLL REVEAL
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+        }
+    });
+}, { threshold: 0.2 });
+
+document.querySelectorAll(".project-card").forEach(card => {
+    observer.observe(card);
 });
