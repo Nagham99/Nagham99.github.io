@@ -1,17 +1,28 @@
 // TYPEWRITER EFFECT
 const words = ["Predictive ML Models.", "Data Pipelines.", "Interactive Dashboards.", "AI-Driven Insights."];
-let i = 0, j = 0, currentWord = "", isDeleting = false;
+let i = 0, j = 0, isDeleting = false;
 
 function type() {
-    currentWord = words[i];
+    const target = document.getElementById("typewriter");
+    if (!target) return; // Guard clause
+
+    let currentWord = words[i];
+    
     if (isDeleting) {
-        document.getElementById("typewriter").textContent = currentWord.substring(0, j - 1);
+        target.textContent = currentWord.substring(0, j - 1);
         j--;
-        if (j == 0) { isDeleting = false; i = (i + 1) % words.length; }
+        if (j === 0) { 
+            isDeleting = false; 
+            i = (i + 1) % words.length; 
+        }
     } else {
-        document.getElementById("typewriter").textContent = currentWord.substring(0, j + 1);
+        target.textContent = currentWord.substring(0, j + 1);
         j++;
-        if (j == currentWord.length) { isDeleting = true; setTimeout(type, 2000); return; }
+        if (j === currentWord.length) { 
+            isDeleting = true; 
+            setTimeout(type, 2000); 
+            return; 
+        }
     }
     setTimeout(type, isDeleting ? 50 : 100);
 }
@@ -27,10 +38,16 @@ const featuredRepos = [
 
 async function fetchRepos() {
     const container = document.getElementById('project-grid');
+    if (!container) return; // Guard clause
+
+    container.innerHTML = ""; // Clear existing content
+
     for (const repo of featuredRepos) {
         try {
             const res = await fetch(`https://api.github.com/repos/Nagham99/${repo}`);
+            if (!res.ok) continue;
             const data = await res.json();
+            
             const card = document.createElement('div');
             card.className = 'project-card';
             card.innerHTML = `
@@ -39,11 +56,14 @@ async function fetchRepos() {
                 <a href="${data.html_url}" target="_blank" class="project-link">View Repository →</a>
             `;
             container.appendChild(card);
-        } catch (e) { console.error(e); }
+        } catch (e) { 
+            console.error("Error fetching repo:", e); 
+        }
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+// MAKE SURE IT RUNS
+window.onload = () => {
     type();
     fetchRepos();
-});
+};
