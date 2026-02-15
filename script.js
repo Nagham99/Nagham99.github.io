@@ -1,9 +1,9 @@
-// TYPEWRITER EFFECT
+// ------------------ TYPEWRITER ------------------
 const words = [
     "Data Engineering",
-    "AI Systems",
     "Machine Learning",
-    "Scalable Analytics"
+    "Business Intelligence",
+    "AI Systems"
 ];
 
 let wordIndex = 0;
@@ -13,7 +13,7 @@ const typewriter = document.getElementById("typewriter");
 
 function typeEffect() {
     const currentWord = words[wordIndex];
-    
+
     if (isDeleting) {
         charIndex--;
     } else {
@@ -35,22 +35,32 @@ function typeEffect() {
 typeEffect();
 
 
-// PROJECT DATA
+// ------------------ YOUR REAL PROJECTS ------------------
 const projects = [
     {
-        title: "Modern Data Pipeline",
-        description: "Designed and deployed an end-to-end ETL pipeline using Airflow and Snowflake to process millions of records efficiently.",
-        link: "#"
+        title: "Cookies Sales Dashboard – Power BI",
+        description: "Interactive Power BI dashboard analyzing cookie sales performance, KPIs, trends, and regional insights.",
+        link: "https://github.com/Nagham99/Cookies-Sales-Dashboard-PowerBI"
     },
     {
-        title: "AI Forecasting Model",
-        description: "Built a production-ready predictive model improving business demand forecasting accuracy by 27%.",
-        link: "#"
+        title: "Sales Dashboard – Excel",
+        description: "Professional Excel-based sales analytics dashboard using pivot tables, charts, and advanced formulas.",
+        link: "https://github.com/Nagham99/Sales-Dashboard-Excel"
     },
     {
-        title: "Realtime Analytics Dashboard",
-        description: "Engineered a real-time BI system integrating streaming data for executive decision-making.",
-        link: "#"
+        title: "Airbnb Price Category Prediction",
+        description: "Machine learning model predicting Airbnb price categories using feature engineering and classification models.",
+        link: "https://github.com/Nagham99/Airbnb-price-category-prediction"
+    },
+    {
+        title: "Reddit Fake Post Detection",
+        description: "NLP-based fake post detection system analyzing Reddit titles using text preprocessing and ML classifiers.",
+        link: "https://github.com/Nagham99/Reddit-Fake-Post-Detection-by-Looking-Only-at-the-Title-"
+    },
+    {
+        title: "Speed Dating Match Prediction",
+        description: "Predictive modeling project analyzing behavioral and demographic features to forecast dating matches.",
+        link: "https://github.com/Nagham99/Speed-Dating-Match-Prediction"
     }
 ];
 
@@ -59,15 +69,18 @@ const projectGrid = document.getElementById("project-grid");
 projects.forEach(project => {
     const card = document.createElement("div");
     card.classList.add("project-card");
+
     card.innerHTML = `
         <h4>${project.title}</h4>
         <p>${project.description}</p>
-        <a class="project-link" href="${project.link}">View Project</a>
+        <a class="project-link" href="${project.link}" target="_blank">View on GitHub</a>
     `;
+
     projectGrid.appendChild(card);
 });
 
-// SCROLL REVEAL
+
+// ------------------ SCROLL REVEAL ------------------
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
