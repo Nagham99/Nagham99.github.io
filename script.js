@@ -1,10 +1,8 @@
-const words = ["ML Models", "Data Pipelines", "Power BI Dashboards", "AI Solutions"];
+const words = ["ML Models", "Data Pipelines", "Visual Dashboards", "AI Solutions"];
 let i = 0, j = 0, isDeleting = false;
 
-function typeEffect() {
+function type() {
     const target = document.getElementById("typewriter");
-    if (!target) return;
-
     let currentWord = words[i];
     if (isDeleting) {
         target.textContent = currentWord.substring(0, j - 1);
@@ -13,9 +11,9 @@ function typeEffect() {
     } else {
         target.textContent = currentWord.substring(0, j + 1);
         j++;
-        if (j === currentWord.length) { isDeleting = true; setTimeout(typeEffect, 2000); return; }
+        if (j === currentWord.length) { isDeleting = true; setTimeout(type, 2000); return; }
     }
-    setTimeout(typeEffect, isDeleting ? 60 : 120);
+    setTimeout(type, isDeleting ? 40 : 80);
 }
 
 const featuredRepos = [
@@ -28,8 +26,6 @@ const featuredRepos = [
 
 async function fetchRepos() {
     const container = document.getElementById('project-grid');
-    if (!container) return;
-
     try {
         const response = await fetch(`https://api.github.com/users/Nagham99/repos`);
         const allRepos = await response.json();
@@ -41,17 +37,15 @@ async function fetchRepos() {
             card.className = 'project-card';
             card.innerHTML = `
                 <h4>${repo.name.replace(/-/g, ' ')}</h4>
-                <p>${repo.description || 'Professional end-to-end data solution.'}</p>
-                <a href="${repo.html_url}" target="_blank" class="project-link">View Project →</a>
+                <p>${repo.description || 'Full-stack data solution architected for business scale.'}</p>
+                <a href="${repo.html_url}" target="_blank" class="project-link">Source Code —</a>
             `;
             container.appendChild(card);
         });
-    } catch (e) {
-        console.error("Fetch error", e);
-    }
+    } catch (e) { console.error(e); }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    typeEffect();
+    type();
     fetchRepos();
 });
