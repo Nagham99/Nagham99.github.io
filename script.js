@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Data Engineering",
         "Machine Learning",
         "Business Intelligence",
-        "AI Systems"
+        "Data Analytics"
     ];
 
     let wordIndex = 0;
