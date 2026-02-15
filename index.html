@@ -1,76 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title> Nagham Abd Elraouf | AI & Data Scientist |Data Anlayst</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nagham | End-to-End Data Specialist</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="hero-content">
-    <h1>Nagham Abd Elraouf </h1>
-    <p class="subtitle">AI & Data Scientist |Data Anlayst • SQL • Python • Power BI</p>
-    <p class="summary">
-      I analyze data to uncover insights, improve performance, and support data-driven decision making.
-    </p>
-    <div class="hero-buttons">
-      <a href="#projects" class="btn primary">View Projects</a>
-      <a href="Nagham_Resume.pdf" class="btn primary" download>Download Resume</a>
-      <a href="https://github.com/Nagham99" class="btn secondary" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/yourlinkedin/" class="btn secondary" target="_blank">LinkedIn</a>
-    </div>
-  </div>
-</header>
+    <header class="hero">
+        <div class="container">
+            <nav>
+                <div class="logo">NAGHAM<span>.DATA</span></div>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="hero-content">
+                <h1>End-to-End <span class="gradient-text">Data Analytics & AI</span></h1>
+                <p class="usp-text">I bridge the gap between Data Engineering, Data Science, and Analytics to provide a unified data journey—from pipeline to insight.</p>
+                <div class="cta-btns">
+                    <a href="#projects" class="btn primary">View My Work</a>
+                    <a href="https://github.com/Nagham99" class="btn secondary">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<!-- MAIN CONTENT -->
-<main class="container">
+    <section id="about" class="pillars">
+        <div class="container">
+            <h2 class="section-title">The Full-Stack Advantage</h2>
+            <div class="pillar-grid">
+                <div class="pillar-card">
+                    <i class="fas fa-database"></i>
+                    <h3>Data Engineering</h3>
+                    <p>Building the foundation with Python & SQL. Robust ETL processes ensuring data is production-ready.</p>
+                </div>
+                <div class="pillar-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Data Science & AI</h3>
+                    <p>MSc in AI from Queen’s University. Designing ML models that turn complex data into intelligence.</p>
+                </div>
+                <div class="pillar-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Data Analytics</h3>
+                    <p>SQL, DAX, and Power BI. Simplifying complex metrics into interactive, high-impact narratives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- ABOUT -->
-  <section class="about">
-    <h2>About Me</h2>
-    <p>
-      I am a data analyst with hands-on experience in SQL, Excel, and Power BI.
-      I specialize in cleaning data, performing analysis, and creating dashboards
-      that translate complex data into clear business insights.
-    </p>
-  </section>
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Selected Case Studies</h2>
+            <div class="project-grid" id="project-grid">
+                </div>
+        </div>
+    </section>
 
-  <!-- PROJECTS -->
-  <section class="projects" id="projects">
-    <h2>Projects</h2>
-    <div class="project-grid" id="project-grid">
-      <!-- Dynamic project cards will be loaded here -->
-    </div>
-  </section>
+    <footer>
+        <p>&copy; 2026 Nagham | Built with Code & Data Insights</p>
+    </footer>
 
-</main>
+    <script>
+        // List your specific repositories here
+        const featuredRepos = [
+            'Airbnb-price-category-prediction',
+            'Reddit-Fake-Post-Detection-by-Looking-Only-at-the-Title-',
+            'Cookies-Sales-Dashboard-PowerBI',
+            'Sales-Dashboard-Excel',
+            'Speed-Dating-Match-Prediction'
+        ];
 
-<!-- FOOTER -->
-<footer class="footer">
-  <p>© 2025 Nagham • <a href="https://github.com/Nagham99" target="_blank">GitHub</a></p>
-</footer>
-
-<!-- DYNAMIC PROJECT LOADING -->
-<script>
-fetch('projects.json')
-  .then(response => response.json())
-  .then(data => {
-    const grid = document.getElementById('project-grid');
-    data.forEach(project => {
-      const card = document.createElement('div');
-      card.className = 'project-card';
-      card.innerHTML = `
-        <img src="${project.image}" alt="${project.title}" class="project-img">
-        <h3>${project.title}</h3>
-        <p>${project.description}</p>
-        <a href="${project.link}" target="_blank">View Project →</a>
-      `;
-      grid.appendChild(card);
-    });
-  });
-</script>
-
+        async function fetchRepos() {
+            const container = document.getElementById('project-grid');
+            for (const repo of featuredRepos) {
+                try {
+                    const res = await fetch(`https://api.github.com/repos/Nagham99/${repo}`);
+                    const data = await res.json();
+                    
+                    const card = document.createElement('div');
+                    card.className = 'project-card';
+                    card.innerHTML = `
+                        <div class="card-content">
+                            <h4>${data.name.replace(/-/g, ' ')}</h4>
+                            <p>${data.description || 'Full-stack data solution involving modeling and visualization.'}</p>
+                            <div class="tags"><span>${data.language || 'Data Science'}</span></div>
+                            <a href="${data.html_url}" target="_blank" class="project-link">Explore Repo →</a>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                } catch (e) { console.error("Error loading repo", e); }
+            }
+        }
+        fetchRepos();
+    </script>
 </body>
 </html>
