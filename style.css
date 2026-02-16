@@ -302,67 +302,81 @@ body {
     opacity: 1;
 }
 /* EXPERTISE SECTION */
+/* EXPERTISE SECTION */
 .expertise-section {
-    padding: 100px 0;
+    padding: 120px 0 80px 0;
     border-top: 1px solid var(--border-dim);
 }
 
-.expertise-grid {
+.expertise-cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    gap: 50px;
 }
 
-.expertise-title {
-    font-size: 0.9rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+/* CARD STYLE */
+.expertise-card {
+    background: var(--gradient);
+    border: 1px solid var(--border-dim);
+    border-radius: 16px;
+    padding: 50px;
+    backdrop-filter: blur(10px);
+    transition: 0.4s ease;
+}
+
+.expertise-card:hover {
+    transform: translateY(-6px);
+    border-color: #2a2a2a;
+    box-shadow: 0 20px 40px rgba(255,255,255,0.05);
+}
+
+.expertise-card h3 {
+    font-size: 1.2rem;
     margin-bottom: 30px;
-    color: var(--text-dim);
+    font-weight: 600;
 }
 
-.expertise-list {
+/* LIST STYLE */
+.expertise-card ul {
     list-style: none;
 }
 
-.expertise-list li {
-    margin-bottom: 18px;
-    font-size: 1.05rem;
-    font-weight: 400;
+.expertise-card ul li {
+    margin-bottom: 16px;
+    color: var(--text-dim);
+    font-size: 0.95rem;
     transition: 0.3s;
 }
 
-.expertise-list li:hover {
-    color: var(--accent);
+.expertise-card ul li:hover {
+    color: var(--text-pure);
     transform: translateX(6px);
 }
 
-/* Tools styling */
-.tech-group {
-    margin-bottom: 25px;
+/* TOOLS BLOCK */
+.tech-block {
+    margin-bottom: 20px;
 }
 
-.tech-label {
+.tech-block span {
     display: block;
     font-size: 0.7rem;
-    letter-spacing: 2px;
     text-transform: uppercase;
+    letter-spacing: 2px;
     color: var(--text-dim);
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
-.tech-group p {
-    font-size: 1rem;
-    line-height: 1.6;
+.tech-block p {
+    font-size: 0.95rem;
     color: var(--text-pure);
 }
 
-/* Responsive */
+/* RESPONSIVE */
 @media (max-width: 900px) {
-    .expertise-grid {
+    .expertise-cards {
         grid-template-columns: 1fr;
-        gap: 60px;
+        gap: 40px;
     }
 }
-
 
