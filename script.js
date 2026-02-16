@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             title: "Sales Dashboard – Excel",
             description: "Excel analytics dashboard using pivot tables and advanced formulas.",
-            image: "images/excel.png",
+            image: "images/excel_dashbord.png",
             link: "https://github.com/Nagham99/Sales-Dashboard-Excel"
         },
         {
