@@ -43,27 +43,37 @@ document.addEventListener("DOMContentLoaded", function () {
     const projects = [
         {
             title: "Cookies Sales Dashboard – Power BI",
-            description: "Interactive Power BI dashboard analyzing sales KPIs and trends.",
+            description: "Interactive dashboard analyzing KPIs, trends, and regional performance insights.",
+            image: "images/cookies.jpg",
+            tech: ["Power BI", "Data Visualization"],
             link: "https://github.com/Nagham99/Cookies-Sales-Dashboard-PowerBI"
         },
         {
             title: "Sales Dashboard – Excel",
-            description: "Excel analytics dashboard using pivot tables and advanced formulas.",
+            description: "Professional Excel analytics dashboard using pivot tables and formulas.",
+            image: "images/excel_dashbord.png",
+            tech: ["Excel", "Business Analytics"],
             link: "https://github.com/Nagham99/Sales-Dashboard-Excel"
         },
         {
-            title: "Airbnb Price Category Prediction",
-            description: "Machine learning model predicting Airbnb pricing categories.",
+            title: "Airbnb Price Prediction",
+            description: "Machine learning model predicting Airbnb price categories.",
+            image: "images/airbnb.jpg",
+            tech: ["Python", "ML", "Scikit-learn"],
             link: "https://github.com/Nagham99/Airbnb-price-category-prediction"
         },
         {
             title: "Reddit Fake Post Detection",
             description: "NLP classifier detecting fake Reddit posts from titles only.",
+            image: "images/reddit.jpg",
+            tech: ["NLP", "Python", "Classification"],
             link: "https://github.com/Nagham99/Reddit-Fake-Post-Detection-by-Looking-Only-at-the-Title-"
         },
         {
             title: "Speed Dating Match Prediction",
             description: "Predictive analytics model forecasting dating match outcomes.",
+            image: "images/speeddating.jpg",
+            tech: ["Regression", "Feature Engineering"],
             link: "https://github.com/Nagham99/Speed-Dating-Match-Prediction"
         }
     ];
@@ -72,15 +82,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (projectGrid) {
         projects.forEach(project => {
-            const card = document.createElement("div");
+            const card = document.createElement("a");
+            card.href = project.link;
+            card.target = "_blank";
             card.classList.add("project-card");
 
+            const techTags = project.tech.map(t => `<span>${t}</span>`).join("");
+
             card.innerHTML = `
-                <h4>${project.title}</h4>
-                <p>${project.description}</p>
-                <a class="project-link" href="${project.link}" target="_blank">
-                    View on GitHub
-                </a>
+                <div class="project-image-wrapper">
+                    <img src="${project.image}" alt="${project.title}">
+                    <div class="project-image-overlay"></div>
+                </div>
+
+                <div class="project-content">
+                    <div class="tech-stack">${techTags}</div>
+                    <h4>${project.title}</h4>
+                    <p>${project.description}</p>
+                </div>
             `;
 
             projectGrid.appendChild(card);
