@@ -44,26 +44,31 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             title: "Cookies Sales Dashboard – Power BI",
             description: "Interactive Power BI dashboard analyzing sales KPIs and trends.",
+            image: "images/cookies.jpg",
             link: "https://github.com/Nagham99/Cookies-Sales-Dashboard-PowerBI"
         },
         {
             title: "Sales Dashboard – Excel",
             description: "Excel analytics dashboard using pivot tables and advanced formulas.",
+            image: "images/excel.png",
             link: "https://github.com/Nagham99/Sales-Dashboard-Excel"
         },
         {
             title: "Airbnb Price Category Prediction",
             description: "Machine learning model predicting Airbnb pricing categories.",
+            image: "images/airbnb.jpg",
             link: "https://github.com/Nagham99/Airbnb-price-category-prediction"
         },
         {
             title: "Reddit Fake Post Detection",
             description: "NLP classifier detecting fake Reddit posts from titles only.",
+            image: "images/reddit.jpg",
             link: "https://github.com/Nagham99/Reddit-Fake-Post-Detection-by-Looking-Only-at-the-Title-"
         },
         {
             title: "Speed Dating Match Prediction",
             description: "Predictive analytics model forecasting dating match outcomes.",
+            image: "images/speeddating.jpg",
             link: "https://github.com/Nagham99/Speed-Dating-Match-Prediction"
         }
     ];
@@ -75,7 +80,12 @@ document.addEventListener("DOMContentLoaded", function () {
             const card = document.createElement("div");
             card.classList.add("project-card");
 
+            // New structure with image on top
             card.innerHTML = `
+                <div class="project-image-wrapper">
+                    <img src="${project.image}" alt="${project.title}">
+                </div>
+
                 <h4>${project.title}</h4>
                 <p>${project.description}</p>
                 <a class="project-link" href="${project.link}" target="_blank">
