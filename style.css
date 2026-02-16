@@ -301,4 +301,68 @@ body {
     transform: translateY(0);
     opacity: 1;
 }
+/* EXPERTISE SECTION */
+.expertise-section {
+    padding: 100px 0;
+    border-top: 1px solid var(--border-dim);
+}
+
+.expertise-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+}
+
+.expertise-title {
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    color: var(--text-dim);
+}
+
+.expertise-list {
+    list-style: none;
+}
+
+.expertise-list li {
+    margin-bottom: 18px;
+    font-size: 1.05rem;
+    font-weight: 400;
+    transition: 0.3s;
+}
+
+.expertise-list li:hover {
+    color: var(--accent);
+    transform: translateX(6px);
+}
+
+/* Tools styling */
+.tech-group {
+    margin-bottom: 25px;
+}
+
+.tech-label {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+}
+
+.tech-group p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-pure);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .expertise-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+}
+
 
