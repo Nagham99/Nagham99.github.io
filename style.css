@@ -175,7 +175,6 @@ body {
 /* IMAGE FOR PROJECT CARD */
 .project-card .project-image-wrapper {
     width: 100%;
-    height: 180px; /* adjust as needed */
     margin-bottom: 20px;
     overflow: hidden;
     border-radius: 12px;
@@ -183,14 +182,13 @@ body {
 
 .project-card .project-image-wrapper img {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* ensures image fills area nicely */
-    transition: transform 0.5s ease;
+    height: auto; /* keeps full image visible */
     display: block;
+    transition: transform 0.5s ease;
 }
 
 .project-card:hover .project-image-wrapper img {
-    transform: scale(1.05); /* subtle hover zoom */
+    transform: scale(1.03); /* subtle hover zoom */
 }
 
 
