@@ -111,3 +111,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
+// ---------------- TECHNICAL SKILLS ----------------
+const skills = [
+    "Python", "SQL", "Power BI", "Excel", 
+    "Pandas", "Scikit-learn", "Tableau", 
+    "Machine Learning", "NLP", "Data Visualization"
+];
+
+const skillsGrid = document.getElementById("skills-grid");
+
+if (skillsGrid) {
+    skills.forEach(skill => {
+        const card = document.createElement("div");
+        card.classList.add("skill-card");
+        card.textContent = skill;
+        skillsGrid.appendChild(card);
+    });
+
+    // Scroll reveal animation
+    const observerSkills = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
+        });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll(".skill-card").forEach(card => {
+        observerSkills.observe(card);
+    });
+}
+
