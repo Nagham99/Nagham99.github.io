@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             title: "Cookies Sales Dashboard – Power BI",
             description: "Interactive Power BI dashboard analyzing sales KPIs and trends.",
-            image: "images/cookies.jpg",
+            image: "images/cookies2.png",
             link: "https://github.com/Nagham99/Cookies-Sales-Dashboard-PowerBI"
         },
         {
