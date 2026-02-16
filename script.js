@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-});
+
 // ---------------- TECHNICAL SKILLS ----------------
 const skills = [
     "Python", "SQL", "Power BI", "Excel", 
@@ -141,4 +141,5 @@ if (skillsGrid) {
         observerSkills.observe(card);
     });
 }
+    });
 
