@@ -255,3 +255,31 @@ body {
 .project-link:hover::after {
     width: 100%;
 }
+.skills-section { 
+    padding: 60px 0; 
+    border-top: 1px solid var(--border-dim);
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.skills-grid span {
+    font-size: 0.75rem;
+    padding: 8px 16px;
+    border-radius: 50px;
+    background: var(--card-gray);
+    border: 1px solid var(--border-dim);
+    color: var(--text-pure);
+    transition: 0.3s;
+}
+
+.skills-grid span:hover {
+    background: var(--accent);
+    color: var(--bg-black);
+    transform: translateY(-3px);
+}
+
