@@ -62,13 +62,13 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             title: "Reddit Fake Post Detection",
             description: "NLP classifier detecting fake Reddit posts from titles only.",
-            image: "images/reddit.jpg",
+            image: "images/reddit.png",
             link: "https://github.com/Nagham99/Reddit-Fake-Post-Detection-by-Looking-Only-at-the-Title-"
         },
         {
             title: "Speed Dating Match Prediction",
             description: "Predictive analytics model forecasting dating match outcomes.",
-            image: "images/speeddating.jpg",
+            image: "images/speeddating.png",
             link: "https://github.com/Nagham99/Speed-Dating-Match-Prediction"
         }
     ];
