@@ -53,6 +53,12 @@ document.addEventListener("DOMContentLoaded", function () {
             image: "images/excel_dashbord.png",
             link: "https://github.com/Nagham99/Sales-Dashboard-Excel"
         },
+         {
+            title: "HR Analytics Dashboard – Power BI",
+            description: "Interactive HR Analytics Dashboard designed to uncover actionable insights about workforce distribution, employee performance, and compensation trends across multiple locations.",
+            image: "images/hr1.png",
+            link: "https://github.com/Nagham99/HR-Analytics-Dashboard"
+        },
         {
             title: "Airbnb Price Category Prediction",
             description: "Machine learning model predicting Airbnb pricing categories.",
