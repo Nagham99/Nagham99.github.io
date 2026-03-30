@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             title: "Airbnb Price Category Prediction",
             description: "Machine learning model predicting Airbnb pricing categories.",
-            image: "images/airbnb.png",
+            image: "images/airbnb(1).png",
             link: "https://github.com/Nagham99/Airbnb-price-category-prediction"
         },
         {
