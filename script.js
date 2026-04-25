@@ -2,10 +2,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ---------------- TYPEWRITER ----------------
     const words = [
-        "Data Engineering",
+        "Data Scientist",
         "Machine Learning",
-        "Business Intelligence",
-        "Data Analytics"
+        "Data Analytics",
+        "Data Engineering",
+        "Business Intelligence"
+        
     ];
 
     let wordIndex = 0;
