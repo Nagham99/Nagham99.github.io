@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
         title: "Telecom Customer Churn Analysis & Prediction Dashboard"
         description: "End-to-End Data Analysis & Machine Learning Project.",
         image: "images/c1.png",
-        link: "https://github.com/Nagham99/Telecom-Churn-Intelligence"
+        link: "https://github.com/Nagham99/Telecom-Churn-Intelligence"}
         
     ];
 
