@@ -77,10 +77,12 @@ document.addEventListener("DOMContentLoaded", function () {
             image: "images/speeddating.png",
             link: "https://github.com/Nagham99/Speed-Dating-Match-Prediction"
         },
-        title: "Telecom Customer Churn Analysis & Prediction Dashboard"
-        description: "End-to-End Data Analysis & Machine Learning Project.",
-        image: "images/c1.png",
-        link: "https://github.com/Nagham99/Telecom-Churn-Intelligence"}
+        {
+            title: "Telecom Customer Churn Analysis & Prediction Dashboard",
+            description: "End-to-End Data Analysis & Machine Learning Project.",
+            image: "images/c1.png",
+            link: "https://github.com/Nagham99/Telecom-Churn-Intelligence"
+      }
         
     ];
 
