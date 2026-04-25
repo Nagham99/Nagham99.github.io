@@ -76,7 +76,12 @@ document.addEventListener("DOMContentLoaded", function () {
             description: "Predictive analytics model forecasting dating match outcomes.",
             image: "images/speeddating.png",
             link: "https://github.com/Nagham99/Speed-Dating-Match-Prediction"
-        }
+        },
+        title: "Telecom Customer Churn Analysis & Prediction Dashboard"
+        description: "End-to-End Data Analysis & Machine Learning Project.",
+        image: "images/c1.png",
+        link: "https://github.com/Nagham99/Telecom-Churn-Intelligence"
+        
     ];
 
     const projectGrid = document.getElementById("project-grid");
