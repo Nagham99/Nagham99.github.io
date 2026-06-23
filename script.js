@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
             title: "UK-Railway Power BI Dashboard ",
             description: "The UK Railway Performance & Revenue Analytics Dashboard is an interactive Power BI solution designed to provide comprehensive insights into railway operations, financial performance, and passenger behavior.",
             image: "images/uk1.png",
-            link: "https://github.com/Nagham99/UK-Railway-Power-BI-Dashboard"
+            link: "https://github.com/Nagham99/UK-Railway-Power-BI-Dashboard-.git"
         },
          {
             title: "Cookies Sales Dashboard – Power BI",
